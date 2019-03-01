@@ -31,7 +31,7 @@ export default function(client) {
         if (enabled(msg)) {
             const to = msg.type === 'groupchat' ? new JID(msg.from.bare) : msg.from;
             client.sendMessage({
-                body: '',
+                processingHints: { store: true },
                 received: msg.id,
                 to,
                 type: msg.type
@@ -43,8 +43,8 @@ export default function(client) {
         if (enabled(msg)) {
             const to = msg.type === 'groupchat' ? new JID(msg.from.bare) : msg.from;
             client.sendMessage({
-                body: '',
                 displayed: msg.id,
+                processingHints: { store: true },
                 to,
                 type: msg.type
             });
@@ -56,7 +56,7 @@ export default function(client) {
             const to = msg.type === 'groupchat' ? new JID(msg.from.bare) : msg.from;
             client.sendMessage({
                 acknowledged: msg.id,
-                body: '',
+                processingHints: { store: true },
                 to,
                 type: msg.type
             });
