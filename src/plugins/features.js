@@ -1,4 +1,4 @@
-import * as async from 'async';
+import { series as asyncSeries } from 'async-es';
 
 export default function(client) {
     client.features = {
@@ -42,7 +42,7 @@ export default function(client) {
             }
         }
 
-        async.series(series, function(cmd, msg) {
+        asyncSeries(series, function(cmd, msg) {
             if (cmd === 'restart') {
                 client.transport.restart();
             } else if (cmd === 'disconnect') {

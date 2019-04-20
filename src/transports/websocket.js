@@ -1,5 +1,5 @@
 import WildEmitter from 'wildemitter';
-import * as async from 'async';
+import { queue } from 'async-es';
 
 let WS = require('ws');
 if (typeof WS !== 'function') {
@@ -20,7 +20,7 @@ export default class WSConnection extends WildEmitter {
             StreamError: stanzas.getStreamError()
         };
 
-        self.sendQueue = async.queue(function(data, cb) {
+        self.sendQueue = queue(function(data, cb) {
             if (self.conn) {
                 if (typeof data !== 'string') {
                     data = data.toString();

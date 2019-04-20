@@ -1,4 +1,4 @@
-import * as async from 'async';
+import { priorityQueue } from 'async-es';
 import * as uuid from 'uuid';
 
 const WildEmitter = require('wildemitter');
@@ -19,7 +19,7 @@ export default class JingleSession extends WildEmitter {
         this.pendingAction = false;
         // Here is where we'll ensure that all actions are processed
         // in order, even if a particular action requires async handling.
-        this.processingQueue = async.priorityQueue(async (task, next) => {
+        this.processingQueue = priorityQueue(async (task, next) => {
             if (this.state === 'ended') {
                 // Don't process anything once the session has been ended
                 if (task.reject) {
