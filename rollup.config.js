@@ -8,7 +8,7 @@ export default {
     },
     plugins: [resolve()],
     external: [
-        'async-es',
+        'async-universal',
         'cross-fetch',
         'events',
         'iana-hashes',

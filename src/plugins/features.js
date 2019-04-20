@@ -1,4 +1,4 @@
-import { series as asyncSeries } from 'async-es';
+import { series as asyncSeries } from 'async-universal';
 
 export default function(client) {
     client.features = {

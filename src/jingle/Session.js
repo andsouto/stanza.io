@@ -1,4 +1,4 @@
-import { priorityQueue } from 'async-es';
+import { priorityQueue } from 'async-universal';
 import * as uuid from 'uuid';
 
 const WildEmitter = require('wildemitter');

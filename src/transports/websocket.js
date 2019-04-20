@@ -1,5 +1,5 @@
 import WildEmitter from 'wildemitter';
-import { queue } from 'async-es';
+import { queue } from 'async-universal';
 
 let WS = require('ws');
 if (typeof WS !== 'function') {
