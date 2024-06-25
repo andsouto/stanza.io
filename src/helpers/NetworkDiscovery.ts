@@ -87,10 +87,6 @@ export default class NetworkDiscovery {
         return hostmeta;
     }
 
-    public async resolveTXT(domain: string): Promise<string[][]> {
-        return this.resolver?.resolveTxt(domain) ?? [];
-    }
-
     public async resolve(
         domain: string,
         defaultPort: number,
